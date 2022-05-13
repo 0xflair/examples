@@ -5,57 +5,48 @@ const asyncHandler = require("express-async-handler");
 
 /**
  * 1) Import required libraries:
- * 
+ *
  *  - "ethers" helps us create a Wallet object based on a private key, which helps us sign transactions.
- *  - "flair-sdk" provides a contract object with ability to submit meta transactions. 
+ *  - "flair-sdk" provides a contract object with ability to submit meta transactions.
  */
 const { Wallet } = require("ethers");
-const {
-  MetaTransactionsClient,
-  Environment,
-  MetaContract,
-  LATEST_VERSION,
-} = require("flair-sdk");
+const { createFlairContractWithMetaTransactions } = require("flair-sdk");
 
 /**
  * 2) Load configurations from environment variables (or any config management you use):
- * 
+ *
  *  - "chainId" is the numeric ID of the chain where your NFT contract is deployed (1 for Ethereum, 4 for Rinkeby Testnet, 137 for Polygon).
  *  - "flairClientId" unique client ID of your Flair account, used for billing purposes.
  *  - "signer" is created based on private key of the minter wallet, used to sign NFT minting meta transactions.
+ *  - "nftCollectionAddress" contract address for your deployed NFT collection on the blockchain.
  */
 const chainId = Number(process.env.MINT_CHAIN_ID);
 const flairClientId = process.env.FLAIR_CLIENT_ID;
 const signer = new Wallet(process.env.MINTER_PRIVATE_KEY);
+const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
 
 /**
- * 3) Create client instances:
- * 
- *  - "metaTxClient" facilitates submitting meta transactions to Flair's backend relayer.
- *  - "nftContract" loads an instance with all the contract (read and write) functions available to use.
+ * 3) Create client instance for the ethers.js-compatible contract augmented with meta transactions.
+ *
+ * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
+ * To use a custom built contract you can manually create the meta transactions client instance (new ).
+ *
+ * @type {import('flair-sdk').MetaTransactionsAugmentedContract<
+ *   import('flair-sdk').V1_6_ERC721OneOfOneCollection
+ * >}
  */
-const metaTxClient = new MetaTransactionsClient({
-  env: Environment.DEV,
+const nftContract = createFlairContractWithMetaTransactions({
+  env: 'dev',
   chainId,
   flairClientId,
+  contractKey: "collections/ERC721/presets/ERC721OneOfOneCollection",
+  addressOrName: nftCollectionAddress,
+  signer,
 });
-
-const nftContract = new MetaContract(
-  metaTxClient,
-  chainId,
-
-  // Contract name of the deployed NFT collection, based on available Flair presets.
-  "collections/ERC721/presets/ERC721OneOfOneCollection",
-  LATEST_VERSION,
-
-  // Address of the deployed NFT collection.
-  "0x07ac68355ff8663c09644bc50bb02b60140842a8",
-  signer
-);
 
 /**
  * 4) Example endpoints:
- * 
+ *
  *  - "GET /mint" endpoint simply uploads a new metadata to IPFS and mints a new 1-of-1 NFT based on that metadata.
  */
 const app = express();
@@ -92,4 +83,6 @@ const port = 8080;
 app.listen(port, () => {
   console.log(`Flair SDK Example - Mint NFTs via Meta Transactions!`);
   console.log(`- Listening on port ${port}`);
+  console.log(``);
+  console.log(`Now you can mint NFTs by opening: http://localhost:${port}/mint`);
 });
