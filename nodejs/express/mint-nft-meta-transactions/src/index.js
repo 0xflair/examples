@@ -10,7 +10,7 @@ const asyncHandler = require("express-async-handler");
  *  - "flair-sdk" provides a contract object with ability to submit meta transactions.
  */
 const { Wallet } = require("ethers");
-const { createFlairContractWithMetaTransactions } = require("flair-sdk");
+const { createFlairContractWithMetaTransactions, IpfsClient } = require("flair-sdk");
 
 /**
  * 2) Load configurations from environment variables (or any config management you use):
@@ -37,11 +37,15 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  */
 const nftContract = createFlairContractWithMetaTransactions({
   env: 'dev',
-  chainId,
-  flairClientId,
+  chainId: chainId,
+  flairClientId: flairClientId,
   contractKey: "collections/ERC721/presets/ERC721OneOfOneCollection",
   addressOrName: nftCollectionAddress,
-  signer,
+  signer: signer,
+});
+
+const ipfsClient = new IpfsClient({
+  flairClientId: flairClientId,
 });
 
 /**
@@ -54,27 +58,57 @@ const app = express();
 app.get(
   "/mint",
   asyncHandler(async (req, res) => {
-    // "to" is the wallet address that receives the new NFT
+    //
+    // A) "to" is the wallet address that receives the new NFT
+    //
     const to = "0x07ac68355ff8663c09644bc50bb02b60140842a8";
 
-    // "count" is the number of NFTs to send to this wallet
-    const count = 2;
+    //
+    // B) "count" is the number of NFTs to send to this wallet
+    //
+    const count = 1;
 
-    // TODO upload to IPFS
+    //
+    // C) Uploading a new metadata to IPFS
+    //
+    const someRandomId = Math.floor(Math.random() * 10000000000);
+    /** @type {import("flair-sdk").NftCollectionMetadata} */
+    const nftMetadata = {
+      name: `Angel #${someRandomId}`,
+      image: "https://my-awesome-site.com/nft/1.png",
+      description: "This is the first NFT in the collection",
+      external_link: "https://my-awesome-site.com/nft/1",
+    };
+    const tokenOneIpfsHash = await ipfsClient.uploadJson(nftMetadata);
 
-    // "tokenURIs" an array with exact size of "count" of metadata URLs for the newly minted NFTs
-    const tokenURIs = ["ipfs://xxxxx/1", "ipfs://xxxxx/2"];
+    //
+    // D) "tokenURIs" an array with exact size of "count" of metadata URLs for the newly minted NFTs
+    //
+    const tokenURIs = [`ipfs://${tokenOneIpfsHash}`];
 
-    // Sign a meta transaction and submit it to the Flair backend relayer for processing
+    console.log(``);
+    console.log(`Minting ${count} NFTs to ${to}:`);
+    console.log(` - tokenURI: ${tokenURIs[0]}`);
+
+    //
+    // E) Sign a meta transaction and submit it to the Flair backend relayer for processing
+    //
     const data = await nftContract.metaTransaction.mintWithTokenURIsByOwner(
       to,
       count,
       tokenURIs
     );
 
+    console.log(` - signature: ${data.signature}`);
+    console.log(``);
+
     // The response is a successfully submitted (but not yet mined) meta transaction.
     // Note that depending on traffic on the blockchain it might take a few minutes to be mined and processed.
-    res.send(data);
+    res.send({
+      tokenURIs: tokenURIs,
+      nftMetadata: nftMetadata,
+      response: data
+    });
   })
 );
 
