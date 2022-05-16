@@ -31,15 +31,13 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
  * To use a custom built contract you can manually create the meta transactions client instance (new ).
  *
- * @type {import('flair-sdk').MetaTransactionsAugmentedContract<
- *   import('flair-sdk').V1_6_ERC721OneOfOneCollection
- * >}
+ * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721FullFeaturedCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
   env: 'dev',
   chainId: chainId,
   flairClientId: flairClientId,
-  contractKey: "collections/ERC721/presets/ERC721OneOfOneCollection",
+  contractFqn: "collections/ERC721/presets/ERC721FullFeaturedCollection",
   addressOrName: nftCollectionAddress,
   signer: signer,
 });
@@ -61,7 +59,7 @@ app.get(
     //
     // A) "to" is the wallet address that receives the new NFT
     //
-    const to = "0x07ac68355ff8663c09644bc50bb02b60140842a8";
+    const to = "0x3DcE763CD70872A3858B68E3a80cA41d997fEC35";
 
     //
     // B) "count" is the number of NFTs to send to this wallet
@@ -75,9 +73,9 @@ app.get(
     /** @type {import("flair-sdk").NftCollectionMetadata} */
     const nftMetadata = {
       name: `Angel #${someRandomId}`,
-      image: "https://my-awesome-site.com/nft/1.png",
+      image: `https://my-awesome-site.com/nft/${someRandomId}.png`,
       description: "This is the first NFT in the collection",
-      external_link: "https://my-awesome-site.com/nft/1",
+      external_link: `https://my-awesome-site.com/nft/${someRandomId}`,
     };
     const tokenOneIpfsHash = await ipfsClient.uploadJson(nftMetadata);
 
@@ -93,10 +91,10 @@ app.get(
     //
     // E) Sign a meta transaction and submit it to the Flair backend relayer for processing
     //
-    const data = await nftContract.metaTransaction.mintWithTokenURIsByOwner(
+    const data = await nftContract.metaTransaction.mintByRole(
       to,
       count,
-      tokenURIs
+      // tokenURIs
     );
 
     console.log(` - signature: ${data.signature}`);
