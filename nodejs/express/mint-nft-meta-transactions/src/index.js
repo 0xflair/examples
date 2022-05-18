@@ -34,7 +34,6 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721FullFeaturedCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
-  env: 'dev',
   chainId: chainId,
   flairClientId: flairClientId,
   contractFqn: "collections/ERC721/presets/ERC721FullFeaturedCollection",
@@ -59,7 +58,7 @@ app.get(
     //
     // A) "to" is the wallet address that receives the new NFT
     //
-    const to = "0x3DcE763CD70872A3858B68E3a80cA41d997fEC35";
+    const to = "0x8016f96b5cCC4663324E8D117c337BB7aA68d909";
 
     //
     // B) "count" is the number of NFTs to send to this wallet
