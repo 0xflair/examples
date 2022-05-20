@@ -31,12 +31,12 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
  * To use a custom built contract you can manually create the meta transactions client instance (new ).
  *
- * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721FullFeaturedCollection>}
+ * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721OneOfOneCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
   chainId: chainId,
   flairClientId: flairClientId,
-  contractFqn: "collections/ERC721/presets/ERC721FullFeaturedCollection",
+  contractFqn: "collections/ERC721/presets/ERC721OneOfOneCollection",
   addressOrName: nftCollectionAddress,
   signer: signer,
 });
@@ -90,10 +90,10 @@ app.get(
     //
     // E) Sign a meta transaction and submit it to the Flair backend relayer for processing
     //
-    const data = await nftContract.metaTransaction.mintByRole(
+    const data = await nftContract.metaTransaction.mintWithTokenURIsByRole(
       to,
       count,
-      // tokenURIs
+      tokenURIs
     );
 
     console.log(` - signature: ${data.signature}`);

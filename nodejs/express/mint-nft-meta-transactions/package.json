@@ -30,6 +30,6 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
-    "flair-sdk": "^0.42.2"
+    "flair-sdk": "^0.44.1"
   }
 }
