@@ -1,4 +1,4 @@
-# Mint NFTs from your backend
+# Example: Mint NFTs from your backend
 
 This example uses Flair SDK to mint new NFTs from your backend using meta transactions. In this approach you will configure a private key that has the "minter" role on your NFT collection (or is contract owner -- which is less secure).
 
