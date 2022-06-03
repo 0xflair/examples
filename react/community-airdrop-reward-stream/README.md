@@ -4,7 +4,7 @@ This example React app uses Flair token streams to render a claiming widget for 
 
 ### Dependencies
 
-* `react`: v17.x
+* `react`: v17.x or v18.x
 
 ## Quick Start
 
