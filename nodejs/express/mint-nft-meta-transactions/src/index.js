@@ -34,6 +34,7 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721OneOfOneCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
+  env: 'dev',
   chainId: chainId,
   flairClientId: flairClientId,
   contractFqn: "collections/ERC721/presets/ERC721OneOfOneCollection",
