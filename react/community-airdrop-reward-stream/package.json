@@ -13,7 +13,7 @@
     "@types/node": "^16.11.38",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",
-    "flair-sdk": "^0.51.4",
+    "flair-sdk": "^0.51.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
