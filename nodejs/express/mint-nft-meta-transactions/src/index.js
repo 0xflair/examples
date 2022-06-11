@@ -20,7 +20,7 @@ const { createFlairContractWithMetaTransactions, IpfsClient } = require("flair-s
  *  - "signer" is created based on private key of the minter wallet, used to sign NFT minting meta transactions.
  *  - "nftCollectionAddress" contract address for your deployed NFT collection on the blockchain.
  */
-const chainId = Number(process.env.MINT_CHAIN_ID);
+const chainId = Number(process.env.CONTRACT_CHAIN_ID);
 const flairClientId = process.env.FLAIR_CLIENT_ID;
 const signer = new Wallet(process.env.MINTER_PRIVATE_KEY);
 const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
@@ -34,7 +34,6 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721OneOfOneCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
-  env: 'dev',
   chainId: chainId,
   flairClientId: flairClientId,
   contractFqn: "collections/ERC721/presets/ERC721OneOfOneCollection",

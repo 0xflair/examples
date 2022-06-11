@@ -2,8 +2,20 @@
 
 This repository contains example usage of Flair SDK in various frameworks and languages.
 
+### What is Flair?
+
+[Flair](https://flair.finance) provides open-source building blocks to integrate NFTs and Web3 in your project, fully trustless and in your ownership.
+
+...with Flair you don't re-invent the wheel.
+
 ## Examples
 
-| Name                                                                    | Description                                              | Use Cases                                                                               |
-| ----------------------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [mint-nft-meta-transactions](nodejs/express/mint-nft-meta-transactions) | Mint new NFTs from your backend using meta transactions. | e.g. When users do a certain action on your app and mint an NFT to their wallet. |
+| Name                                                                             | Description                                              | Use Cases                                                                                   |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [react / custom-nft-minting-sales](react/custom-nft-minting-sales)               | Custom NFT Minting Sales page on your own app            | e.g. To use give your users a native minting experience with your own styling.              |
+| [react / community-airdrop-reward-stream](react/custom-nft-minting-sales)        | Airdrop ERC20 rewards to your NFT community.             | e.g. To reward long-term holders of your NFTs with a credit token or your own gaming token. |
+| [nodejs / mint-nft-meta-transactions](nodejs/express/mint-nft-meta-transactions) | Mint new NFTs from your backend using meta transactions. | e.g. When users do a certain action on your app and mint an NFT to their wallet.            |
+
+## Questions?
+
+Feel free to hop of Flair's Discord, our developers are happy to help you: [https://discord.gg/flair](https://discord.gg/flair)

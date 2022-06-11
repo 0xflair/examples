@@ -13,28 +13,33 @@ This example React app uses Flair token streams to render a claiming widget for 
 2. Grab your contract address and chain ID, and update [App.tsx](./src/App.tsx):
    * Set `STREAM_CONTRACT_ADDRESS` to your deployed contract address you get from Flair's dashboard > Streams > your-stream > Deploy tab.
    * Set `STREAM_CHAIN_ID` depending on the contract chain. Use `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet.
-3. Run the react app in the `community-airdrop-reward-stream` directory:
+3. Clone the repo, install dependencies and run the react app in the `community-airdrop-reward-stream` directory:
 
    ```sh
+   git clone https://github.com/0xflair/examples
+
+   cd examples/react/community-airdrop-reward-stream
+
+   npm install
+
    npm start
    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![Screenshot](./staking-screenshot.png)
 
 ## 🔮 Tutorial
 
-To use this example within your app:
+To use this example within your own React app:
 
-1. Install `flair-sdk` in your React app:
+1. Install `flair-sdk`:
 
    ```sh
    npm install flair-sdk
    ```
 
-2. Configure FlairProvider:
+2. Configure FlairProvider around your root App:
 
    ```ts
    import { FlairProvider } from 'flair-sdk';
