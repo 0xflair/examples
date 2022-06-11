@@ -1,6 +1,6 @@
-# Example: Airdrop rewards to your NFT community
+# Example: Custom NFT Minting Sales Page using React
 
-This example React app uses Flair token streams to render a claiming widget for holders of your NFT collection to claim some ERC20 rewards over a specific period of time.
+This example React app renders a minting pre-sale/public-sale widget for an NFT collection.
 
 ##### Dependencies
 
@@ -9,11 +9,11 @@ This example React app uses Flair token streams to render a claiming widget for 
 
 ## :fire: Quick Start
 
-1. Create a new stream in [Flair's dashboard](https://app.flair.finance/streams). Note that you will be the full owner of staking contract.
+1. Create a new NFT collection using [Flair's dashboard](https://app.flair.finance/collections). Note that you will be the full owner of smart contract.
 2. Grab your contract address and chain ID, and update [App.tsx](./src/App.tsx):
-   * Set `STREAM_CONTRACT_ADDRESS` to your deployed contract address you get from Flair's dashboard > Streams > your-stream > Deploy tab.
-   * Set `STREAM_CHAIN_ID` depending on the contract chain. Use `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet.
-3. Run the react app in the `community-airdrop-reward-stream` directory:
+   * Set `COLLECTION_CONTRACT_ADDRESS` to your deployed contract address you get from Flair's dashboard > Collections > your-collection > Deploy tab.
+   * Set `COLLECTION_CHAIN_ID` depending on the contract chain. Use `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet.
+3. Run the react app in the `custom-nft-minting-sales` directory:
 
    ```sh
    npm start
@@ -22,7 +22,7 @@ This example React app uses Flair token streams to render a claiming widget for 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-![Screenshot](./staking-screenshot.png)
+![Screenshot](./collection-public-minting.png)
 
 ## 🔮 Tutorial
 
@@ -46,9 +46,9 @@ To use this example within your app:
    // ...
    ```
 
-3. Implement the claiming widget depending on your preferred customizability:
+3. Implement the minting widget depending on your preferred customizability:
    * Easiest approach with minimum customizability you can copy the code within [App.tsx](./src/App.tsx).
-   * To have your own layout you can use individual components as in [VestedHolderStreamClaimingSection.tsx](https://github.com/0xflair/typescript-sdk/blob/main/packages/react-token-streams/src/presets/vested-holder-preset/sections/VestedHolderStreamClaimingSection.tsx#L24-L84)
+   * To have your own layout you can use individual components as in [CollectionSalesMintingSection.tsx](https://github.com/0xflair/typescript-sdk/blob/main/packages/react-nft-collections/src/extensions/sales/sections/CollectionSalesMintingSection.tsx#L28-L135)
 
 4. *(optional)* To get the default styling you can install and configure [tailwindcss](https://tailwindcss.com/docs/installation/using-postcss):
    1. Install `npm install tailwindcss @headlessui/react @heroicons/react`
