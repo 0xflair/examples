@@ -1,7 +1,8 @@
 {
-    "name": "custom-nft-minting-sales",
-    "description": "This example React app renders a minting pre-sale/public-sale widget for an NFT collection.",
-    "repository": "https://github.com/0xflair/examples/tree/main/react/custom-nft-minting-sales",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-    "keywords": ["nft", "mint"]
-  }
+  "name": "Start on Heroku: Node.js",
+  "description": "A barebones Node.js app using Express 4",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
