@@ -1,16 +1,13 @@
 import { CollectionSalesMintingSection } from "flair-sdk";
-
-const COLLECTION_CHAIN_ID = "137";
-const COLLECTION_CONTRACT_ADDRESS =
-  "0x564b577b62133b53ad2774711e40e53a6362b553";
+const { REACT_APP_COLLECTION_CHAIN_ID, REACT_APP_COLLECTION_CONTRACT_ADDRESS } = process.env
 
 function App() {
   return (
     <div className="flex items-center justify-center min-h-screen">
       {/* Import the whole prebuilt section component */}
       <CollectionSalesMintingSection
-        chainId={Number(COLLECTION_CHAIN_ID)}
-        contractAddress={COLLECTION_CONTRACT_ADDRESS}
+        chainId={Number(REACT_APP_COLLECTION_CHAIN_ID)}
+        contractAddress={String(REACT_APP_COLLECTION_CONTRACT_ADDRESS)}
       />
 
       {/* OR, if you want control over each component (supply counter, mint button, etc) */}
