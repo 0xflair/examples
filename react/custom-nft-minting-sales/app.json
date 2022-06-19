@@ -1,0 +1,7 @@
+{
+    "name": "custom-nft-minting-sales",
+    "description": "This example React app renders a minting pre-sale/public-sale widget for an NFT collection.",
+    "repository": "https://github.com/0xflair/examples/tree/main/react/custom-nft-minting-sales",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "keywords": ["nft", "mint"]
+  }
