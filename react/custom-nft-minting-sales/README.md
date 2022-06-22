@@ -20,9 +20,9 @@ This example React app renders a minting pre-sale/public-sale widget for an NFT 
    npm install
    ```
 
-3. Grab your contract address and chain ID, and update [App.tsx](./src/App.tsx):
-   * Set `COLLECTION_CONTRACT_ADDRESS` to your deployed contract address you get from Flair's dashboard > Collections > your-collection > Deploy tab.
-   * Set `COLLECTION_CHAIN_ID` depending on the contract chain. Use `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet.
+3. Grab your contract address and chain ID, and update [.env](./.env):
+   * Set `REACT_APP_COLLECTION_CONTRACT_ADDRESS` to your deployed contract address you get from Flair's dashboard > Collections > your-collection > Deploy tab.
+   * Set `REACT_APP_COLLECTION_CHAIN_ID` depending on the contract chain. Use `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet, etc.
 4. Run the react app in the `custom-nft-minting-sales` directory:
 
    ```sh
