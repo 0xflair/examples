@@ -57,7 +57,7 @@ To use this example within your own React app:
 
 3. Implement the claiming widget depending on your preferred customizability:
    * Easiest approach with minimum customizability you can copy the code within [App.tsx](./src/App.tsx).
-   * To have your own layout you can use individual components as in [VestedHolderStreamClaimingSection.tsx](https://github.com/0xflair/typescript-sdk/blob/main/packages/react-token-streams/src/presets/vested-holder-preset/sections/VestedHolderStreamClaimingSection.tsx#L24-L84)
+   * To have your own layout you can use individual components as in [StreamClaimingSection.tsx](https://github.com/0xflair/typescript-sdk/blob/main/packages/react-token-streams/src/sections/StreamClaimingSection.tsx#L65-L206)
 
 4. *(optional)* To get the default styling you can install and configure [tailwindcss](https://tailwindcss.com/docs/installation/using-postcss):
    1. Install `npm install tailwindcss @headlessui/react @heroicons/react`

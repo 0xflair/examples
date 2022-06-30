@@ -14,7 +14,7 @@ import {
 } from "flair-sdk";
 
 const STREAM_CHAIN_ID = "137";
-const STREAM_CONTRACT_ADDRESS = "0xff928c667452358a7f78f90b7b618d56cfc69eef";
+const STREAM_CONTRACT_ADDRESS = "0x08a48926cac3c8de4285f3ce00538075adc633e4";
 
 function App() {
   const chainId = Number(STREAM_CHAIN_ID);
