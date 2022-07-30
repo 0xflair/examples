@@ -3,7 +3,7 @@ import {
   StreamClaimableAmount,
   StreamClaimButton,
   StreamClaimingProvider,
-  StreamEmissionRate,
+  StreamRateByTokens,
   StreamEmissionTimeUnit,
   StreamTotalClaimed,
   SwitchChainButton,
@@ -14,7 +14,7 @@ import {
 } from "flair-sdk";
 
 const STREAM_CHAIN_ID = "137";
-const STREAM_CONTRACT_ADDRESS = "0x08a48926cac3c8de4285f3ce00538075adc633e4";
+const STREAM_CONTRACT_ADDRESS = "0xbb1cb56e057022fba8d55c8dde1d17adbd3be649";
 
 function App() {
   const chainId = Number(STREAM_CHAIN_ID);
@@ -62,13 +62,14 @@ function App() {
                           </div>
                           <div className="border-t border-gray-200 pt-4 flex items-center justify-between gap-4">
                             <dt className="flex flex-col gap-1 text-sm text-gray-600">
-                              <span>Emission rate</span>
+                              <span>Reward rate</span>
                               <small className="text-xs flex-shrink-0 text-gray-400">
-                                Tokens distributed among all NFTs{' '}
+                                How many tokens you receive{' '}
+                                <StreamEmissionTimeUnit className="inline" />
                               </small>
                             </dt>
                             <dd className="text-sm font-medium text-gray-900">
-                              <StreamEmissionRate />
+                              <StreamRateByTokens />
                             </dd>
                           </div>
                           <div className="border-t border-gray-200 pt-4 flex items-center justify-between gap-4">
