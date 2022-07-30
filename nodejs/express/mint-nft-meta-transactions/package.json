@@ -27,12 +27,10 @@
   },
   "homepage": "https://github.com/0xflair/examples#readme",
   "dependencies": {
+    "@0xflair/ipfs": "^0.87.9",
+    "@0xflair/meta-transactions": "^0.87.9",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-async-handler": "^1.2.0",
-    "flair-sdk": "^0.81.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.5"
+    "express-async-handler": "^1.2.0"
   }
 }
