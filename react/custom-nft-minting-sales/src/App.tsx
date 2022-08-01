@@ -143,11 +143,10 @@ function App() {
       </CollectionProvider>
 
       {/* OR, import the whole prebuilt minting component:
-
-      <CollectionSalesMintingSection
-        chainId={Number(REACT_APP_COLLECTION_CHAIN_ID)}
-        contractAddress={String(REACT_APP_COLLECTION_CONTRACT_ADDRESS)}
-      />
+      
+      <CollectionProvider chainId={Number(chainId)} contractAddress={contractAddress}>
+        <CollectionSalesMintingSection />
+      </CollectionProvider>
 
       */}
     </div>
