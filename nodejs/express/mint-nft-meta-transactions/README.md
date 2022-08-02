@@ -11,7 +11,7 @@ This example uses Flair SDK to mint new NFTs from your backend using meta transa
 
 ## :fire: Quick Start
 
-1. Create and deploy a **1-of-1 NFT Collection** under 2 minutes via [Flair's Collections](https://app.flair.finance/collections/create/ERC721OneOfOne).
+1. Create and deploy a **Digital Asset Collection** under 2 minutes via [Flair's Collections](https://app.flair.finance/collections/create/ERC721OneOfOne).
 
 2. Create your first API Key if not already done via [Flair's API Keys](https://app.flair.finance/clients).
 
@@ -36,12 +36,26 @@ This example uses Flair SDK to mint new NFTs from your backend using meta transa
    * *CONTRACT_CHAIN_ID*: based on the chain you used to deploy the contract. `1` for Eth mainnet, `4` for Rinkeby testnet, `137` for Polygon mainnet, etc.
    * *MINTER_PRIVATE_KEY*: the private key of your wallet, or a new wallet you created just for minting.
 
-6. Start the test server:
+6. If you're using a minter wallet other than your contract owner, give that minter address "MINTER_ROLE", so it can mint NFTs:
+    1. Go to your collection dashboard
+    2. Go to "Roles" admin section
+    3. Paste your minter address, and click on "Grant role".
+
+7. Allow Flair's trusted forwarder to send meta-transactions to your collection:
+    1. Go to your collection dashboard
+    2. Go to "Minting" admin section, scroll down to "Backend Minting" card.
+    3. Configure your trusted forwarder address with the value of Flair's latest trusted forwarder shown at the bottom of the same card.
+
+8. Start the test server:
 
     ```bash
     npm start
     ```
 
-7. Open the test endpoint in your browser to mint the first NFT:
+9. Open the test endpoint in your browser to mint the first NFT:
 
     * [http://localhost:8080/mint](http://localhost:8080/mint)
+
+## Need help?
+
+Our developers are happy to help you debug issues and problems, join our [Discord](https://discord.gg/flair) and drop a message.
