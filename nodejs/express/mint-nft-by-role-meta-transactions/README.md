@@ -17,7 +17,7 @@ We're going to rely on [ERC721RoleBasedMintExtension](https://github.com/0xflair
 
 2. Create your first API Key if not already done via [Flair's API Keys](https://app.flair.finance/clients).
 
-3. Close this repo and navigate to the example directory:
+3. Clone this repo and navigate to the example directory:
 
     ```bash
     git clone https://github.com/0xflair/examples
