@@ -29,21 +29,15 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
 /**
  * 3) Create client instance for the ethers.js-compatible contract augmented with meta transactions.
  *
- * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
+ * In this example we use one of ready-made presets (ERC721SimpleSalesCollection).
  * To use a custom built contract you can manually create the meta transactions client instance (new ).
- *
- * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721OneOfOneCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
   chainId: chainId,
   flairClientId: flairClientId,
-  contractFqn: "collections/ERC721/presets/ERC721OneOfOneCollection",
+  contractFqn: "collections/ERC721/extensions/ERC721RoleBasedMintExtension",
   addressOrName: nftCollectionAddress,
   signer: signer,
-});
-
-const ipfsClient = new IpfsClient({
-  flairClientId: flairClientId,
 });
 
 /**
@@ -66,45 +60,24 @@ app.get(
     //
     const count = 1;
 
-    //
-    // C) Uploading a new metadata to IPFS
-    //
-    const someRandomId = Math.floor(Math.random() * 10000000000);
-    /** @type {import("flair-sdk").NftCollectionMetadata} */
-    const nftMetadata = {
-      name: `Angel #${someRandomId}`,
-      image: `https://my-awesome-site.com/nft/${someRandomId}.png`,
-      description: "This is the first NFT in the collection",
-      external_link: `https://my-awesome-site.com/nft/${someRandomId}`,
-    };
-    const tokenOneIpfsHash = await ipfsClient.uploadJson(nftMetadata);
-
-    //
-    // D) "tokenURIs" an array with exact size of "count" of metadata URLs for the newly minted NFTs
-    //
-    const tokenURIs = [`ipfs://${tokenOneIpfsHash}`];
-
     console.log(``);
     console.log(`Minting ${count} NFTs to ${to}:`);
-    console.log(` - tokenURI: ${tokenURIs[0]}`);
 
     //
-    // E) Sign a meta transaction and submit it to the Flair backend relayer for processing
+    // C) Sign a meta transaction and submit it to the Flair backend relayer for processing
     //
-    const data = await nftContract.metaTransaction.mintWithTokenURIsByRole(
+    const data = await nftContract.metaTransaction.mintByRole(
       to,
-      count,
-      tokenURIs
+      count
     );
 
-    console.log(` - signature: ${data.signature}`);
+    console.log(` - Signature: ${data.signature}`);
+    console.log(` - Transaction is being processed and mined check your contract on EtherScan to see the status...`);
     console.log(``);
 
     // The response is a successfully submitted (but not yet mined) meta transaction.
     // Note that depending on traffic on the blockchain it might take a few minutes to be mined and processed.
     res.send({
-      tokenURIs: tokenURIs,
-      nftMetadata: nftMetadata,
       response: data
     });
   })
@@ -113,7 +86,7 @@ app.get(
 const port = 8080;
 
 app.listen(port, () => {
-  console.log(`Flair SDK Example - Mint NFTs via Meta Transactions!`);
+  console.log(`Flair SDK Example - Mint NFTs by role via Meta Transactions!`);
   console.log(`- Listening on port ${port}`);
   console.log(``);
   console.log(`Now you can mint NFTs by opening: http://localhost:${port}/mint`);

@@ -1,6 +1,8 @@
-# Example: Mint NFTs from your backend
+# Example: Mint 1-of-1 NFTs from your backend
 
 This example uses Flair SDK to mint new NFTs from your backend using meta transactions. In this approach you will configure a private key that has the "minter" role on your NFT collection (or is contract owner -- which is less secure).
+
+We're going to use "Digital Asset Collection" collection, which is using [OneOfOneExtension](https://docs.flair.finance/sdk/nft-collections/minting/of-1-mint), and will mint NFTs with dedicated dynamic metadata and image URI. This means each NFT will have it's own metadata and image IPFS URI.
 
 ##### Dependencies
 
@@ -20,7 +22,7 @@ This example uses Flair SDK to mint new NFTs from your backend using meta transa
     ```bash
     git clone https://github.com/0xflair/examples
 
-    cd examples/nodejs/express/mint-nft-meta-transactions
+    cd examples/nodejs/express/mint-one-of-one-nft-meta-transactions
 
     npm install
     ```
