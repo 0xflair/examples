@@ -10,7 +10,6 @@ const asyncHandler = require("express-async-handler");
  *  - "flair-sdk" provides a contract object with ability to submit meta transactions.
  */
 const { Wallet } = require("ethers");
-const { IpfsClient } = require("@0xflair/ipfs");
 const { createFlairContractWithMetaTransactions } = require("@0xflair/meta-transactions");
 
 /**
