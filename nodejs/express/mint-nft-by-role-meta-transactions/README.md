@@ -45,7 +45,7 @@ We're going to rely on [ERC721RoleBasedMintExtension](https://github.com/0xflair
 
 7. Allow Flair's trusted forwarder to send meta-transactions to your collection:
     1. Go to your collection dashboard
-    2. Go to "Minting" admin section, scroll down to "Backend Minting" card.
+    2. Go to "Minting" admin section, scroll down to "Backend minting" card.
     3. Configure your trusted forwarder address with the value of Flair's latest trusted forwarder shown at the bottom of the same card.
 
 8. Start the test server:
