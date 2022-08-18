@@ -75,7 +75,7 @@ app.get(
       name: `Angel #${someRandomId}`,
       image: `https://my-awesome-site.com/nft/${someRandomId}.png`,
       description: "This is the first NFT in the collection",
-      external_link: `https://my-awesome-site.com/nft/${someRandomId}`,
+      external_url: `https://my-awesome-site.com/nft/${someRandomId}`,
     };
     const tokenOneIpfsHash = await ipfsClient.uploadJson(nftMetadata);
 
