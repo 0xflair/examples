@@ -7,6 +7,7 @@ This example React app renders a connect button and when wallet is connected it 
 - `flair-sdk`: latest
 - `react`: v17.x or v18.x
 
+<!-- 
 ## :fire: Quick Start
 
 1. Clone the examples repo, install dependencies in the `simple-wallet-integration` directory:
@@ -25,7 +26,7 @@ This example React app renders a connect button and when wallet is connected it 
    npm start
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. -->
 
 ## 🔮 Tutorial
 
@@ -49,7 +50,7 @@ To use this example within your app:
    // ...
    ```
 
-3. _(optional)_ If you're using Webpack 5 (e.g. React v17+) you need to manually configure Buffer for Coinbase wallet to work:
+3. _(optional)_ If you're using Webpack 5 (e.g. React v17+) you might to manually configure Buffer for Coinbase wallet to work:
 
    1. Install `npm install react-app-rewired buffer`
    2. Then create a [config-overrides.js](config-overrides.js) to inject the Buffer.
@@ -57,11 +58,18 @@ To use this example within your app:
 4. Add `<ConnectButton>`, `<WalletProfile>` and/or `<WalletDropdown>` components in your dApp.
 
    ```ts
-   import { ConnectButton } from "flair-sdk";
+   import { 
+      ConnectButton, 
+      DisconnectButton, 
+      IfConnected, 
+      WalletProfile,
+      WalletDropdown 
+   } from "flair-sdk";
 
    const App = () => {
      return (
        <div>
+         {/* Render a simple connect button */}
          Hi! You can connect here: <ConnectButton />
 
          {/* If user is connected render a dropdown */}
@@ -77,6 +85,11 @@ To use this example within your app:
          {/* Render a dropdown with wallet profile and menu right after connect button */}
          <ConnectButton>
             <WalletDropdown />
+         </ConnectButton>
+
+         {/* Render a disconnect button after user has connected */}
+         <ConnectButton>
+            <DisconnectButton />
          </ConnectButton>
        </div>
      );
