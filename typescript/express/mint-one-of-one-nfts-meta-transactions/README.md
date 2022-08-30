@@ -1,4 +1,4 @@
-# Example: Mint 1-of-1 NFTs from your backend (Node.js)
+# Example: Mint 1-of-1 NFTs from your backend (Typescript)
 
 This example uses Flair SDK to mint new NFTs from your backend using meta transactions. In this approach you will configure a private key that has the "minter" role on your NFT collection (or is contract owner -- which is less secure).
 
@@ -7,6 +7,7 @@ We're going to use "Digital Asset Collection" collection, which is using [OneOfO
 ##### Dependencies
 
 * Node.js
+* Typescript
 * Express
 * `flair-sdk`: latest
 * An Ethereum-compatible wallet private key (either [via Javascript](https://www.quicknode.com/guides/web3-sdks/how-to-generate-a-new-ethereum-address-in-javascript) using [MetaMask](https://metamask.io/))
@@ -48,13 +49,19 @@ We're going to use "Digital Asset Collection" collection, which is using [OneOfO
     2. Go to "Minting" admin section, scroll down to "Backend minting" card.
     3. Configure your trusted forwarder address with the value of Flair's latest trusted forwarder shown at the bottom of the same card.
 
-8. Start the test server:
+8. Build the project to get javascript files based on typescript code:
+
+    ```bash
+    npm run build
+    ```
+
+9. Start the test server:
 
     ```bash
     npm start
     ```
 
-9. Open the test endpoint in your browser to mint the first NFT:
+10. Open the test endpoint in your browser to mint the first NFT:
 
     * [http://localhost:8080/mint](http://localhost:8080/mint)
 
