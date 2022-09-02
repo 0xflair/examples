@@ -31,8 +31,6 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  *
  * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
  * To use a custom built contract you can manually create the meta transactions client instance (new ).
- *
- * @type {import('flair-sdk').MetaTransactionsAugmentedContract<import('flair-sdk').V1_7_ERC721OneOfOneCollection>}
  */
 const nftContract = createFlairContractWithMetaTransactions({
   chainId: chainId,
