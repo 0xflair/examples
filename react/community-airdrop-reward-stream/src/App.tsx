@@ -13,8 +13,8 @@ import {
   StreamProvider,
 } from "flair-sdk";
 
-const STREAM_CHAIN_ID = "137";
-const STREAM_CONTRACT_ADDRESS = "0xbb1cb56e057022fba8d55c8dde1d17adbd3be649";
+const STREAM_CHAIN_ID = "43114";
+const STREAM_CONTRACT_ADDRESS = "0x6b32a8d6be237a43b3e30fd52a13835725343c9a";
 
 function App() {
   const chainId = Number(STREAM_CHAIN_ID);
