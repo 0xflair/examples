@@ -9,8 +9,9 @@ import {
   SwitchChainButton,
   WalletDropdown,
   StreamClaimingStatusBar,
-  RequireConnect,
+  IfWalletConnected,
   StreamProvider,
+  IfWalletNotConnected,
 } from "flair-sdk";
 
 const STREAM_CHAIN_ID = "137";
@@ -37,9 +38,9 @@ function App() {
             </h1>
 
             <div className="mt-4">
-              <RequireConnect notConnectedView={<></>}>
+              <IfWalletConnected>
                 <WalletDropdown />
-              </RequireConnect>
+              </IfWalletConnected>
             </div>
 
             <StreamClaimingProvider>

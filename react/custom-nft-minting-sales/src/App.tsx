@@ -13,7 +13,7 @@ import {
   ConnectButton,
   SwitchChainButton,
   WalletDropdown,
-  RequireConnect,
+  IfWalletConnected,
 } from "flair-sdk";
 
 import { useState } from "react";
@@ -45,9 +45,9 @@ function App() {
                   {/* Sales Info */}
                   <div className="flex gap-4 sm:items-center sm:justify-between sm:flex-row flex-col">
                     <CollectionTitle className="text-4xl font-medium text-gray-900" />
-                    <RequireConnect notConnectedView={<></>}>
+                    <IfWalletConnected>
                       <WalletDropdown />
-                    </RequireConnect>
+                    </IfWalletConnected>
                   </div>
                 </div>
 
