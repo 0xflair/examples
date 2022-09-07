@@ -95,9 +95,7 @@ function App() {
                         </dl>
 
                         <div className="flex flex-col justify-center items-center">
-                          {/* Claim button */}
                           <ConnectButton
-                            wrapperClassName="w-full"
                             className={buttonClass}
                             label="Connect to claim"
                           >
