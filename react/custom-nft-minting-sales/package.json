@@ -18,7 +18,7 @@
     "@types/react-blockies": "^1.4.1",
     "@types/react-dom": "^18.0.5",
     "@types/react-modal": "^3.13.1",
-    "flair-sdk": "^0.116.0",
+    "flair-sdk": "^0.116.1",
     "react": "^18.1.0",
     "react-blockies": "^1.4.1",
     "react-dom": "^18.1.0",
