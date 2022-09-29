@@ -38,6 +38,7 @@ const nftContract = createFlairContractWithMetaTransactions({
   contractFqn: "collections/ERC721/extensions/ERC721OneOfOneMintExtension",
   addressOrName: nftCollectionAddress,
   signer: signer,
+  forwarder: "0xb1780c61a8b0714bF08E8c403f6cd5c1374F6AA9",
 });
 
 const ipfsClient = new IpfsClient({
