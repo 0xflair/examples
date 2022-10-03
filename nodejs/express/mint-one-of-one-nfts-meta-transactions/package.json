@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/0xflair/examples#readme",
   "dependencies": {
-    "@0xflair/ipfs": "^0.116.4",
-    "@0xflair/meta-transactions": "^0.116.4",
+    "@0xflair/ipfs": "^0.120.3",
+    "@0xflair/meta-transactions": "^0.120.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0"

@@ -11,7 +11,7 @@ dotenv.config();
  *  - "flair-sdk" provides a contract object with ability to submit meta transactions.
  */
 import { Wallet } from "ethers";
-import { V1_19_ERC721OneOfOneCollection } from "@0xflair/contracts-registry";
+import { V1_22_ERC721OneOfOneCollection } from "@0xflair/contracts-registry";
 import { IpfsClient } from "@0xflair/ipfs";
 import { createFlairContractWithMetaTransactions } from "@0xflair/meta-transactions";
 
@@ -34,7 +34,7 @@ const nftCollectionAddress = process.env.NFT_COLLECTION_ADDRESS;
  * In this example we use one of ready-made presets (ERC721OneOfOneCollection).
  * To use a custom built contract you can manually create the meta transactions client instance (new ).
  */
-const nftContract = createFlairContractWithMetaTransactions<V1_19_ERC721OneOfOneCollection>({
+const nftContract = createFlairContractWithMetaTransactions<V1_22_ERC721OneOfOneCollection>({
   chainId: chainId,
   flairClientId: flairClientId,
   contractFqn: "collections/ERC721/extensions/ERC721OneOfOneMintExtension",
