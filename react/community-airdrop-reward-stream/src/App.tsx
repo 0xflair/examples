@@ -18,8 +18,8 @@ const STREAM_CHAIN_ID = "137";
 const STREAM_CONTRACT_ADDRESS = "0xbb1cb56e057022fba8d55c8dde1d17adbd3be649";
 
 function App() {
-  const chainId = Number(STREAM_CHAIN_ID);
-  const contractAddress = STREAM_CONTRACT_ADDRESS;
+  const chainId = Number(1);
+  const contractAddress = 0x6cacf9f2911ad8ae71640d3d779f9b55f6dd95e8;
 
   const buttonClass =
     "mt-4 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed";
